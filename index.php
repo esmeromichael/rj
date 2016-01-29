@@ -11,11 +11,11 @@ include('session.php');
 	<title>Home</title>
 	<link href="assets/css/font-awesome.min.css" rel="stylesheet" />
     <link href="assets/css/font-awesome-animation.css" rel="stylesheet" />
-	<link href="assets/css/bootstrap.css" rel="stylesheet" />
-	<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
-	<link href="assets/css/style.css" rel="stylesheet" />
-	<link href="assets/css/jquery-ui.css" rel="stylesheet" />
-	<link href="assets/css/simplePagination.css" rel="stylesheet" />
+    <link href="assets/css/simplePagination.css" rel="stylesheet" />
+    <link href="assets/css/style2.css" rel="stylesheet" />
+    <link href="assets/css/select2.min.css" rel="stylesheet" />
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/css/jquery-ui.css" rel="stylesheet" />
 </head>
 <body>
 	<div class="navbar navbar-inverse navbar-fixed-top">
@@ -31,19 +31,20 @@ include('session.php');
 				<ul class="nav nav-pills" style="display:left;">
 					<li class="active"><a href="index.php">ITEMS</a></li>
 					<li><a href="purchase.php">PURCHASE</a></li>
-					<li><a href="Gallery.html">SALES</a></li>
+					<li><a href="sales.php">SALES</a></li>
 					<li><a href="logout.php">LOGOUT</a></li>
 				</ul>
 			</div>
 
-			<div class="col-md-3" style="text-align:right;">
+			<div  style="text-align:right;float:right;">
 				<a class="dropdown-toggle" href="#" data-toggle="modal" data-target="#myModalSaveItems">
-				<i class="fa fa-file fa-2x" style="margin-top:5px; color:#ffffff;" title="Create New Price Advice"></i></a>
+				<i class="fa fa-file fa-2x" style=" color:#ffffff;" title="Create New Price Advice"></i></a>
 			</div>
 		</div>
 	</div>
-	<div class="container" style="margin-top:5%;">
-		<div class="flash-message">
+	<br><br>
+	<div class="container" >
+	<div class="" style="height:25px; width:100%;">
 			<?php
 				include('connect.php');
 				 if(isset($_POST['submit'])) {
@@ -55,7 +56,9 @@ include('session.php');
 					mysql_query($sql,$con);
 					$sql1 = " INSERT INTO inventories(item_name,brand,category)VALUES('$itemname','$brand','$category')";
 					mysql_query($sql1,$con);
-					echo "<p class='alert-sucess'>Item sucessfully added. </p>";
+					echo "<div class='alert alert-success'>
+                          <strong>Success!</strong> Item(s) successfully added.
+                        </div>";
 					echo "<meta http-equiv='refresh' content='0;url=$_SERVER[REQUEST_URL]'>";
 				}
 				 if(isset($_POST['submit2'])){
@@ -67,12 +70,14 @@ include('session.php');
 				 	$dateexp = date('Y-m-d', strtotime($_POST['date_expired']));
 				 	$itemcost = $_POST['item_cost'];
 				 	mysql_query("UPDATE inventories SET item_name='$itemname',brand='$brand',category='$category',item_cost='$itemcost',date_manufactured='$dateman',date_expired='$dateexp' WHERE id='$id'");
-				 	echo "<p class='alert-sucess'>Item sucessfully update. </p>";
-					echo "<meta http-equiv='refresh' content='0;url=$_SERVER[REQUEST_URL]'>";
+				 	echo "<div class='alert alert-success'>
+                          <strong>Success!</strong> Item(s) successfully update.
+                        </div>";
+					// echo "<meta http-equiv='refresh' content='0;url=$_SERVER[REQUEST_URL]'>";
 				}
 			?>
 		</div>
-	<h5>This is the Items Tab. Click on the Item ID to view details</h5>
+	<h5 style="margin-top:3%;">This is the Items Tab. Click on the Item ID to view details</h5>
 		<table class="items table table-striped table-hover">
 			<thead>
 				<tr>
@@ -96,7 +101,7 @@ include('session.php');
 	</div>
 	<footer class="footer">
 		<nav class="navbar navbar-inverse navbar-fixed-bottom">
-		   <label style="font-size:60%;margin-left:1%;"> 2015 esmeromichael@yahoo.com | All Right Reserved  | Published by <a href="#"></a>M.E </label>
+		   <label style="font-size:62%;margin-left:1%; color:#ffffff;"> 2015 esmeromichael@yahoo.com | All Right Reserved  | Published by <a href="#"></a>M.E </label>
 		</nav>
 	</footer>
 	<!-- This section is for modal function -->
@@ -118,13 +123,13 @@ include('session.php');
             		<div class="form-group">
             		    <label class="col-md-3 control-label">Brand</label>
                     	<div class="col-md-6">
-                    	    <input type="text" class="form-control" name="brand" required>
+                    	    <input type="text" class="form-control" name="brand" required >
                     	</div>
             		</div>
             		<div class="form-group">
             		    <label class="col-md-3 control-label">Category</label>
                     	<div class="col-md-6">
-                    	    <select name="category" class="form-control">
+                    	    <select name="category" class="form-control" style="padding-top:2px;">
                     	    	<?php
 								include('connect.php');
 								$sql = "SELECT * FROM categories";
@@ -171,7 +176,7 @@ include('session.php');
             		<div class="form-group">
             		    <label class="col-md-3 control-label">Category</label>
                     	<div class="col-md-6">
-                    	    <select name="category2" class="form-control category2" value="">
+                    	    <select name="category2" class="form-control category2" value="" style="padding-top:2px;">
                     	    </select>
                     	</div>
             		</div>
@@ -201,11 +206,11 @@ include('session.php');
 			</div>
 		</div>
 	</div>
-	<script src="assets/js/jquery-ui.min.js"></script>
-	<script src="assets/js/jquery-ui.js"></script>
-	<script src="assets/js/jquery-1.10.2.js"></script>
-	<script src="assets/js/simplePagination.js"></script>
-	<script src="assets/plugins/bootstrap.min.js"></script>
+	<script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/select2.min.js"></script>
+    <script src="assets/js/jquery-ui.js"></script>
+    <script src="assets/js/simplePagination.js"></script>
 	<script type="text/javascript">
 			$( ".datepicker" ).datepicker({
 				dateFormat: "MM d, yy",

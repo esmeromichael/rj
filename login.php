@@ -9,27 +9,18 @@ error_reporting(0);
     <meta name="description" content="">
     <meta name="author" content="">
     <title>RJ Pharmacy </title>
-    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
     <link href="assets/css/font-awesome.min.css" rel="stylesheet" />
     <link href="assets/css/font-awesome-animation.css" rel="stylesheet" />
     <link href="assets/css/prettyPhoto.css" rel="stylesheet" />
     <link href="assets/css/style.css" rel="stylesheet" />
     <link href="assets/css/style2.css" rel="stylesheet" />
+
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top" >
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">RJ Gwapo</a>
-            </div>
-        </div>
-    </div>
+
      <div class="container">
         <div class="card card-container">
             <img id="profile-img" class="profile-img-card" src="img/rj.jpg" />
